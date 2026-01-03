@@ -1,33 +1,60 @@
 import PostListItem from "./PostListItem";
 import {
-  useQuery,
+  useQuery,useInfiniteQuery
 } from '@tanstack/react-query'
 import axios from "axios";
+import InfiniteScroll from "react-infinite-scroll-component";
 
-const fetchPosts = async () => {
-  const res = await axios.get(`${import.meta.env.VITE_API_URL}posts`);
+const fetchPosts = async (pageParam) => {
+  const res = await axios.get(`${import.meta.env.VITE_API_URL}/posts`,{
+    params:{page:pageParam}
+  });
   return res.data;
 }
 
-function PostList() {
-   
 
-  const { isPending, error, data } = useQuery({
-    queryKey: ['repoData'],
-    queryFn: () => fetchPosts(),
+function PostList() {  
+  const {
+    data,
+    error,
+    fetchNextPage,
+    hasNextPage,
+    isFetching,
+    isFetchingNextPage,
+    status,
+  } = useInfiniteQuery({
+    queryKey: ['posts'],
+    queryFn: ({ pageParam = 1 }) => fetchPosts(pageParam),
+    initialPageParam: 1,
+    getNextPageParam: (lastPage, pages) => lastPage.hasmore? pages.length + 1 : undefined,
   })
 
-  if (isPending) return 'Loading...'
+  console.log(data);
 
-  if (error) return 'An error has occurred: ' + error.message
+  const allPosts = data ? data.pages.flatMap(page => page.posts) : [];
+
+  if (status === 'pending') return 'Loading...'
+
+  if (status === 'error') return 'An error has occurred: ' + error.message
 
     return(
-        <>
-        <PostListItem />
-        <PostListItem />
-        <PostListItem />
-        </>
-    )
+        <InfiniteScroll
+  dataLength={allPosts.length}
+  next={fetchNextPage}
+  hasMore={hasNextPage}
+  loader={<h4>Loading more posts...</h4>}
+  endMessage={
+    <p style={{ textAlign: 'center' }}>
+      <b>All posts has been covered !</b>
+    </p>
+  }
+>
+  {allPosts.map((post) => (
+      <PostListItem key={post._id} post={post} />
+    ))}
+</InfiniteScroll>
+        
+  );
     
 }
 export default PostList;

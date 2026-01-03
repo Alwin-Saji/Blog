@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router";
 import MainCategories from "../Components/MaincCategories";
 import FeaturedPost from "../Components/FeaturedPost";
 import PostList from "../Components/PostList";
-import Post from "./Post";
+import SinglePostPage from "./SinglePostPage";
 
 
 

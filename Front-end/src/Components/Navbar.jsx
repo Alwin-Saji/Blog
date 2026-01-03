@@ -11,7 +11,7 @@ function Navbar() {
 
    const{getToken} = useAuth();
 
-   useEffect(()=>{getToken().then(token=>console.log(token)),[]})
+   useEffect(()=>{getToken().then((token)=>console.log(token))},[])
 
     return (
         <>
@@ -19,13 +19,7 @@ function Navbar() {
 
           <div className='relative w-full cursor-default mx-auto flex px-8 py-4 text-white shadow-md justify-between items-center'>
             <div className='flex flex-col items-center hover:scale-[1.07] transform duration-300'>
-              <Image 
-                src={Logo} 
-                w={50} 
-                h={50} 
-                alt="Logo" 
-                className='mb-1' 
-              />
+            <img src={Logo} alt="Dev Hive" width={32} height={32} />
               <div className='text-lg font-semibold unica-one-regular'>Dev Hive</div>
           </div>
         <div className='hidden sm:flex justify-between  '>

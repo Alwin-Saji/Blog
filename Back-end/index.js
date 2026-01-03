@@ -1,6 +1,6 @@
 import express from 'express';
 import connectDB from './lib/connectDB.js';
-import dotenv from 'dotenv';
+import 'dotenv/config';
 import userrouter from './routes/user.route.js';
 import postrouter from './routes/post.route.js';
 import commentrouter from './routes/comment.route.js';
@@ -10,14 +10,21 @@ import { get } from 'mongoose';
 import cors from 'cors';
 
 // Load environment variables
-dotenv.config();  
+// dotenv.config();  
 
 
 const app=express();
-app.use(cors(process.env.CLIENT_URL));
+app.use(cors({ origin: process.env.CLIENT_URL }));
 app.use(clerkMiddleware());
 app.use('/webhooks', webhookrouter);
 app.use(express.json());
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", 
+    "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 
 // app.get('/test', (req, res) => {

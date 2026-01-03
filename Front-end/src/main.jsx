@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import Home from './Pages/Home.jsx';
 import Login from './Pages/Login.jsx';
-import Post from './Pages/Post.jsx';
+import SinglePostPage from './Pages/SinglePostPage.jsx';
 import Register from './Pages/Register.jsx';
 import Write from './Pages/Write.jsx';
 import About from './Pages/About.jsx';
@@ -19,6 +19,8 @@ import {
   QueryClientProvider,
   useQuery,
 } from '@tanstack/react-query'
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
   const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
@@ -68,16 +70,12 @@ let router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: "post",
-        element: <Post />,
-      },
-      {
         path: "postlistpage",
         element: <PostListPage />,
       },
       {
-        path: "post/:id",
-        element: <Post />,
+        path: "post/:slug",
+        element: <SinglePostPage />,
       },
     ],
   },
@@ -88,6 +86,7 @@ createRoot(document.getElementById('root')).render(
     <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
       <QueryClientProvider client={new QueryClient()}>
       <RouterProvider router={router} />
+      <ToastContainer position='bottom-right' />
       </QueryClientProvider>
     </ClerkProvider>
   </StrictMode>,

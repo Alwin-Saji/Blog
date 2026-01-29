@@ -1,0 +1,55 @@
+@import "tailwindcss";
+.unica-one-regular {
+  font-family: "Unica One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.unica-one-bold {
+  font-family: "Unica One", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+body {
+  background-color: #242424;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbars */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+nav a{
+  position: relative;
+}
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: #ced1d1;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+.animatedbutton{
+  animation-duration: 10000ms;
+}    

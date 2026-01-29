@@ -14,6 +14,7 @@
     "@imagekit/react": "^5.0.1",
     "@tailwindcss/vite": "^4.1.13",
     "@tanstack/react-query": "^5.90.11",
+    "axios": "^1.13.4",
     "cors": "^2.8.5",
     "imagekitio-react": "^4.3.0",
     "react": "^19.1.1",

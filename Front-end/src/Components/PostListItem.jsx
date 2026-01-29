@@ -20,9 +20,9 @@ function PostListItem({post}) {
         <Link className="text-3xl" to={`/post/${post.slug}`}>{post.title}</Link>
         <div className="flex items-center gap-4 text-gray-400 text-xs">
             <span>Written by</span>
-            <Link to={`/${post.slug}`} className="text-blue-500 hover:underline">{post.user.username}</Link>
+            {post.user && <Link to={`/postlistpage?author=${post.user.username}`} className="text-blue-500 hover:underline">{post.user.username}</Link>}
             <span>on</span>
-            <Link className="text-blue-500 hover:underline" to="/test">{post.category}</Link>
+            <Link className="text-blue-500 hover:underline" to={`/postlistpage?cat=${post.category}`}>{post.category}</Link>
             <span>•</span>
             <span>{format(post.createdAt)}</span>
         </div>

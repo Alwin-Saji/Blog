@@ -1,6 +1,6 @@
+import 'dotenv/config';
 import express from 'express';
 import connectDB from './lib/connectDB.js';
-import 'dotenv/config';
 import userrouter from './routes/user.route.js';
 import postrouter from './routes/post.route.js';
 import commentrouter from './routes/comment.route.js';

@@ -30,7 +30,7 @@ function SinglePostPage() {
 
   return (
     <>
-          <div className="mt-5 px-11 flex gap-5 text-white text-lg unica-one-regular">
+        <div className="mt-5 px-11 flex gap-5 text-white text-lg unica-one-regular">
         <Link to="/" className="hover:text-blue-400">Home</Link>
         <span>•</span>
         <span className="hover:cursor-default text-white/40">Post</span>
@@ -75,7 +75,7 @@ function SinglePostPage() {
     <ImageComponent src="instagram.jpeg" className="w-8 h-8" alt="Instagram" /> </Link>
    </div>
     </div>
-   <PostMenuAction />
+   <PostMenuAction post={data} />
    <div className="flex flex-col gap-3 px-4">
    <h1 className="text-left text-xl  ">Categories</h1>
 

@@ -48,7 +48,7 @@ function FeaturedPost() {
               </div>
             {/* title */}
             <Link to={`/posts/${posts[0].slug}`} className="text-lg" >{posts[0].title}</Link>
-            <p>{posts[0].desc.length > 200 ? posts[0].desc.substring(0, 150) + "..." : posts[0].desc}</p>
+            <p>{posts[0].desc.length > 200 ? posts[0].desc.substring(0, 200) + "..." : posts[0].desc}</p>
             </div>
              {/* others */}
              <div className="w-full lg:w-1/2 flex flex-col gap-8 px-4">
@@ -68,7 +68,7 @@ function FeaturedPost() {
              </div>
              {/* titles */}
              <Link to={`/posts/${posts[1].slug}`}>{posts[1].title}</Link>
-             <p>{posts[1].desc.length > 30 ? posts[1].desc.substring(0, 150) + "..." : posts[1].desc}</p>
+             <p>{posts[1].desc.length > 50 ? posts[1].desc.substring(0, 50) + "..." : posts[1].desc}</p>
              </div>
              </div>
 }
@@ -87,7 +87,7 @@ function FeaturedPost() {
              </div>
              {/* titles */}
              <Link to={`/posts/${posts[2].slug}`}>{posts[2].title}</Link>
-             <p>{posts[2].desc.length > 30 ? posts[2].desc.substring(0, 150) + "..." : posts[2].desc}</p>
+             <p>{posts[2].desc.length > 50 ? posts[2].desc.substring(0, 50) + "..." : posts[2].desc}</p>
              </div>
              </div>
 }
@@ -107,7 +107,7 @@ function FeaturedPost() {
              </div>
              {/* titles */}
              <Link to={`/posts/${posts[3].slug}`}>{posts[3].title}</Link>
-             <p>{posts[3].desc.length > 30 ? posts[3].desc.substring(0, 150) + "..." : posts[3].desc}</p>
+             <p>{posts[3].desc.length > 50 ? posts[3].desc.substring(0, 50) + "..." : posts[3].desc}</p>
              </div>
              </div>
              }

@@ -37,7 +37,7 @@ function Write() {
   const { isLoaded, isSignedIn } = useUser();
 
   if (!isLoaded) return <div className="text-white">Loading...</div>;
-  if (isLoaded && !isSignedIn) return <div className="text-white">You should Login!</div>;
+  if (isLoaded && !isSignedIn) return <div className="text-white text-center">You should Login!..</div>;
 
   const handleSubmit = (e) => {
     e.preventDefault();

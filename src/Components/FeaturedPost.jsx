@@ -51,7 +51,7 @@ function FeaturedPost() {
             <p>{posts[0].desc.length > 170 ? posts[0].desc.substring(0, 170) + "..." : posts[0].desc}</p>
             </div>
              {/* others */}
-             <div className="w-full lg:w-1/2 flex flex-col gap-8 px-4">
+             <div className="w-full lg:w-1/2 flex flex-col gap-8 px-4 md:mt-6">
 
               {/* second */}
               {posts[1] && <div className="lg:h-1/3 flex flex-row gap-4"> 

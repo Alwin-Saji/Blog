@@ -47,7 +47,7 @@ function FeaturedPost() {
               <span>{format(posts[0].createdAt)}</span>
               </div>
             {/* title */}
-            <Link to={`/posts/${posts[0].slug}`} className="text-lg" >{posts[0].title}</Link>
+            <Link to={`/post/${posts[0].slug}`} className="text-xl hover:text-blue-300" >{posts[0].title}</Link>
             <p>{posts[0].desc.length > 170 ? posts[0].desc.substring(0, 170) + "..." : posts[0].desc}</p>
             </div>
              {/* others */}
@@ -60,14 +60,14 @@ function FeaturedPost() {
              {/* details and titles */}
              <div className="w-2/3 flex flex-col gap-5 lg:text-lg">
              {/* details */}
-             <div className="flex gap-2">
+             <div className="flex gap-2 text-sm">
                 <h1>02.</h1>
                 <Link>{posts[1].category}</Link>
                 <span>•</span>
                 <span>{format(posts[1].createdAt)}</span>
              </div>
              {/* titles */}
-             <Link to={`/posts/${posts[1].slug}`}>{posts[1].title}</Link>
+             <Link to={`/post/${posts[1].slug}`} className="hover:text-blue-300" >{posts[1].title}</Link>
              <p>{posts[1].desc.length > 100 ? posts[1].desc.substring(0, 100) + "..." : posts[1].desc}</p>
              </div>
              </div>
@@ -79,14 +79,14 @@ function FeaturedPost() {
              {/* details and titles */}
              <div className="w-2/3 flex flex-col gap-5 lg:text-lg">
              {/* details */}
-             <div className="flex gap-2">
+             <div className="flex gap-2 text-sm">
                 <h1>03.</h1>
                 <Link>{posts[2].category}</Link>
                 <span>•</span>
                 <span>{format(posts[2].createdAt)}</span>
              </div>
              {/* titles */}
-             <Link to={`/posts/${posts[2].slug}`}>{posts[2].title}</Link>
+             <Link to={`/post/${posts[2].slug}`} className="hover:text-blue-300">{posts[2].title}</Link>
              <p>{posts[2].desc.length > 100 ? posts[2].desc.substring(0, 100) + "..." : posts[2].desc}</p>
              </div>
              </div>
@@ -99,14 +99,14 @@ function FeaturedPost() {
              {/* details and titles */}
              <div className="w-2/3 flex flex-col gap-5 lg:text-lg">
              {/* details */}
-             <div className="flex gap-2">
+             <div className="flex gap-2 text-sm">
                 <h1>04.</h1>
                 <Link>{posts[3].category}</Link>
                 <span>•</span>
                 <span>{format(posts[3].createdAt)}</span>
              </div>
              {/* titles */}
-             <Link to={`/posts/${posts[3].slug}`}>{posts[3].title}</Link>
+             <Link to={`/post/${posts[3].slug}`} className="hover:text-blue-300" >{posts[3].title}</Link>
              <p>{posts[3].desc.length > 100 ? posts[3].desc.substring(0, 100) + "..." : posts[3].desc}</p>
              </div>
              </div>

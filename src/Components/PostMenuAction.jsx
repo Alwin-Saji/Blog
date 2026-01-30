@@ -88,9 +88,10 @@ function PostMenuAction({post}) {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({queryKey: ["post",post.slug]});
+      queryClient.invalidateQueries({queryKey: ["posts"], exact: false});
     },
     onError: (error) => {
-      console.log(error);
+      toast.error(error.response?.data || "Failed to feature/unfeature post");
     },
   });
 

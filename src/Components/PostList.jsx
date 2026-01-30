@@ -60,7 +60,7 @@ function PostList() {
     </p>
   }
 >
-  {allPosts.map((post) => (
+  {allPosts.filter(post => post && post._id).map((post) => (
       <PostListItem key={post._id} post={post} />
     ))}
 </InfiniteScroll>

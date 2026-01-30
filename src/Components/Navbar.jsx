@@ -47,15 +47,15 @@ function Navbar() {
             <div className='transition-transform duration-300 top-8 text-xl right-10 absolute z-50 cursor-pointer hover:scale-110'>
                 {Open ? '✕' : '☰'}
             </div>
-            <div className={`fixed w-full h-screen flex flex-col gap-6 unica-one-bold text-2xl py-16 top-0 left-[50vw] bg-slate-700 text-white shadow-lg transition-all duration-500 ease-in-out z-40 ${
+            <div className={`fixed w-full h-screen flex flex-col gap-6 unica-one-bold text-2xl py-16 top-0 left-[40vw] bg-slate-700 text-white shadow-lg transition-all duration-500 ease-in-out z-40 ${
                 Open 
                 ? ' -translate-x-0' 
                 : ' translate-x-full pointer-events-none'
             }`}>
                 <Link to="/" className='px-6 py-3 mx-4 rounded-lg transition-colors duration-200 hover:bg-slate-600'>Home</Link>
-                <Link to="/post/1" className='px-6 py-3 mx-4 rounded-lg transition-colors duration-200 hover:bg-slate-600'>Post</Link>
-                <Link to="/register" className='px-6 py-3 mx-4 rounded-lg transition-colors duration-200 hover:bg-slate-600'>Register</Link>
+                <Link to="/postlistpage"  className='px-6 py-3 mx-4 rounded-lg transition-colors duration-200 hover:bg-slate-600'>PostList</Link>
                 <Link to="/write" className='px-6 py-3 mx-4 rounded-lg transition-colors duration-200 hover:bg-slate-600'>Write</Link>
+                <Link to="/about" className='px-6 py-3 mx-4 rounded-lg transition-colors duration-200 hover:bg-slate-600'>About</Link>
                 <button onClick={() => navigate('/login')} className='bg-blue-500 hover:bg-white py-2 unica-one-bold shadow-[-0px_0px_8px_rgba(59,130,246,0.5)] hover:shadow-[0_0px_20px_rgba(59,130,246,0.7)] rounded-xl text-white no-underline text-xl transition-all duration-300 ml-8 w-[20vw] hover:text-blue-400'>Login</button>
             </div>
         </div>

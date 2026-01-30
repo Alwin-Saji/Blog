@@ -9,19 +9,19 @@ import SinglePostPage from "./SinglePostPage";
 function Home() {
   return (
     <>    
-    <div className="flex flex-col p-5 px-10 h-full w-full text-white unica-one-regular">
-      <div className="flex gap-5 text-white text-lg unica-one-regular">
+    <div className="flex flex-col p-5 px-5 md:px-10 h-full w-full text-white unica-one-regular">
+      <div className="flex gap-5 text-white text-sm md:text-lg unica-one-regular">
         <Link to="/" className="hover:text-blue-400">Home</Link>
         <span>•</span>
         <span className="hover:cursor-default text-white/40">Blogs and Articles</span>
       </div>
-      <div className="flex justify-between">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-start">
         <div className="mt-10 flex flex-col gap-6 text-white">
-      <h1 className="text-xl font-bold">Welcome to Dev Hive</h1>
-       <p className="lg:w-[70vw] w-[65vw] text-lg text-justify text-white/80">Discover a vibrant community of developers, writers, and creators sharing their knowledge, experiences, and innovative ideas. From beginner tutorials to advanced techniques, find inspiration and learn something new every day.</p>
+      <h1 className="text-lg md:text-xl font-bold">Welcome to Dev Hive</h1>
+       <p className="max-w-full md:max-w-4xl text-base md:text-lg text-justify text-white/80">Discover a vibrant community of developers, writers, and creators sharing their knowledge, experiences, and innovative ideas. From beginner tutorials to advanced techniques, find inspiration and learn something new every day.</p>
       </div>
  
-  <div className="relative hidden sm:block ">
+  <div className="relative hidden sm:block mt-10 md:mt-0">
     <svg viewBox="0 0 200 200" width={200} height={200} className="text-lg animate-spin animatedbutton  ">
       <path id="circlepath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="none" />
     <text className="fill-white ">

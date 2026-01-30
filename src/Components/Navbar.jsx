@@ -25,7 +25,7 @@ function Navbar() {
         <div className='hidden sm:flex justify-between  '>
           <nav className='flex text-[#464b4b] space-x-6 sm:mr-10 text-xl mt-2 unica-one-regular'>          
             <Link to="/" className='no-underline font-medium transition-colors duration-300 hover:text-blue-400'>Home</Link>
-            <Link to="/post/1" className='no-underline font-medium transition-colors duration-300 hover:text-blue-400'>Post</Link>
+            {/* <Link to="/post/1" className='no-underline font-medium transition-colors duration-300 hover:text-blue-400'>Post</Link> */}
             <Link to="/postlistpage" className='no-underline font-medium transition-colors duration-300 hover:text-blue-400'>PostList</Link>
             <Link to="/about" className='no-underline font-medium transition-colors duration-300 hover:text-blue-400'>About</Link>
             <Link to="/write" className='no-underline font-medium transition-colors duration-300 hover:text-blue-400'>Write</Link>

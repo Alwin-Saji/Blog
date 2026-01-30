@@ -17,8 +17,8 @@ function Home() {
       </div>
       <div className="flex justify-between">
         <div className="mt-10 flex flex-col gap-6 text-white">
-      <h1 className="text-xl font-bold">Lorem ipsum dolor sit amet.</h1>
-       <p className="lg:w-[70vw] w-[65vw] text-lg text-justify text-white/80">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur consequatur sint nulla hic, temporibus eos accusantium similique reiciendis atque odio libero culpa, itaque velit dolor tempore! Optio at nostrum eos modi ea.</p>
+      <h1 className="text-xl font-bold">Welcome to Dev Hive</h1>
+       <p className="lg:w-[70vw] w-[65vw] text-lg text-justify text-white/80">Discover a vibrant community of developers, writers, and creators sharing their knowledge, experiences, and innovative ideas. From beginner tutorials to advanced techniques, find inspiration and learn something new every day.</p>
       </div>
  
   <div className="relative hidden sm:block ">

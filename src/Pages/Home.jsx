@@ -39,7 +39,9 @@ function Home() {
     </div>
   <MainCategories />
   <FeaturedPost />
+  <div className="md:mt-6">
   <PostList />
+  </div>
 
 
 

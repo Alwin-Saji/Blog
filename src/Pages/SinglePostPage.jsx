@@ -1,8 +1,5 @@
 import ImageComponent from "../Components/Image.jsx";
-import Stock from "../assets/images/stock1.jpeg";
 import { Link } from "react-router-dom";
-import LinkdIn from "../assets/images/linkdin.png"
-import Instagram from "../assets/images/instagram.jpeg"
 import PostMenuAction from "../Components/PostMenuAction.jsx";
 import Search from "../Components/Search.jsx";
 import Comments from "../Components/Comments.jsx";
@@ -10,6 +7,12 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { format } from "timeago.js";
+
+const stripHtml = (html) => {
+  const tmp = document.createElement("DIV");
+  tmp.innerHTML = html;
+  return tmp.textContent || tmp.innerText || "";
+};
 
 const fetchPosts = async (slug)=>{
   const res = await axios.get(`${import.meta.env.VITE_API_URL}/posts/${slug}`);
@@ -51,13 +54,13 @@ function SinglePostPage() {
         <p className="text-xl font-sans text-justify">{data.desc}</p>
         </div>
         <div className="hidden md:flex w-2/5 justify-end items-center">
-          <ImageComponent src="stock.webp" className="w-1/2 rounded-3xl" />
+          <ImageComponent src={data.img} className="w-1/2 rounded-3xl" />
         </div>         
       </div>
 
      <div className="flex">
    <div className="w-4/5 mt-10 font-sans text-justify text-lg lg:text-xl leading-8 flex flex-col gap-6">
-   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem dignissimos dolore earum pariatur dolor, ab, incidunt nisi, voluptatibus sunt veritatis facere expedita quis consequuntur commodi temporibus placeat omnis illo soluta odio eius vel delectus!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem repellendus porro reprehenderit voluptas ullam sapiente incidunt odio earum commodi officia, nam repellat a inventore consequatur dolor, explicabo nihil eaque veritatis minus recusandae eos odit rerum possimus ducimus? Totam, rem reiciendis. Amet repellat quia accusantium repudiandae excepturi iusto laboriosam fugiat, dolorem tempore laborum illo quam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut sunt temporibus necessitatibus adipisci voluptate deserunt velit nisi architecto totam aliquam? Veniam itaque ea eaque consequatur rerum soluta nemo consequuntur magni saepe delectus.</p>
+   <p className="text-xl font-sans text-justify">{stripHtml(data.content) || 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem dignissimos dolore earum pariatur dolor, ab, incidunt nisi, voluptatibus sunt veritatis facere expedita quis consequuntur commodi temporibus placeat omnis illo soluta odio eius vel delectus!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem repellendus porro reprehenderit voluptas ullam sapiente incidunt odio earum commodi officia, nam repellat a inventore consequatur dolor, explicabo nihil eaque veritatis minus recusandae eos odit rerum possimus ducimus? Totam, rem reiciendis. Amet repellat quia accusantium repudiandae excepturi iusto laboriosam fugiat, dolorem tempore laborum illo quam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut sunt temporibus necessitatibus adipisci voluptate deserunt velit nisi architecto totam aliquam? Veniam itaque ea eaque consequatur rerum soluta nemo consequuntur magni saepe delectus.'}</p>
    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem dignissimos dolore earum pariatur dolor, ab, incidunt nisi, voluptatibus sunt veritatis facere expedita quis consequuntur commodi temporibus placeat omnis illo soluta odio eius vel delectus!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem repellendus porro reprehenderit voluptas ullam sapiente incidunt odio earum commodi officia, nam repellat a inventore consequatur dolor, explicabo nihil eaque veritatis minus recusandae eos odit rerum possimus ducimus? Totam, rem reiciendis. Amet repellat quia accusantium repudiandae excepturi iusto laboriosam fugiat, dolorem tempore laborum illo quam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut sunt temporibus necessitatibus adipisci voluptate deserunt velit nisi architecto totam aliquam? Veniam itaque ea eaque consequatur rerum soluta nemo consequuntur magni saepe delectus.</p>
 
    </div>
@@ -65,7 +68,7 @@ function SinglePostPage() {
    <div className="w-1/5 flex flex-col gap-2 px-4 h-max sticky top-8">
     <h1 className="font-bold text-xl">Author</h1>
     <div className="flex flex-col gap-3 ">
-      {data.user?.img && <ImageComponent src={data.user.img} className="w-full rounded-2xl object-cover" />}
+      {data.user?.img &&<ImageComponent src={data.user.img} className="w-full rounded-2xl object-cover" />}
    <Link to="/">{data.user?.username}</Link>
    <p className="text-sm text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ea id culpa harum velit, saepe repudiandae dolor debitis dignissimos? Laborum.</p>
    <div className="flex gap-2">

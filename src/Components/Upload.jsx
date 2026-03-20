@@ -1,8 +1,10 @@
 import { IKContext, IKUpload } from 'imagekitio-react';
 import { useRef } from 'react';
 import { toast } from 'react-toastify';
+import { useAuth } from '@clerk/clerk-react';
 
 function Upload({children,type,setData,setProgress}){
+    const { getToken } = useAuth();
     
    const onError=  (err)=> {
     console.log("Error", err);
@@ -19,7 +21,12 @@ function Upload({children,type,setData,setProgress}){
 
  const authenticator =  async () => {
       try {
-          const response = await fetch(`${import.meta.env.VITE_API_URL}/posts/upload-auth`);
+          const userToken = await getToken();
+          const response = await fetch(`${import.meta.env.VITE_API_URL}/posts/upload-auth`,{
+            headers: {
+              Authorization: `Bearer ${userToken}`
+            }
+          });
       
           if (!response.ok) {
               const errorText = await response.text();
